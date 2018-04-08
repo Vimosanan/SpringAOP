@@ -13,7 +13,7 @@ public class BeforeAspect {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Before("execution(* com.in28minutes.spring.aop.springaop.business.*.*(..))")
+	@Before("com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()")
 	public void before(JoinPoint joinPoint) {
 		logger.info("Intercepted Method Calls - {}", joinPoint);
 

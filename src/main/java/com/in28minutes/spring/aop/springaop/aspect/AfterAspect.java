@@ -15,19 +15,19 @@ public class AfterAspect {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@AfterReturning(value = "execution(* com.in28minutes.spring.aop.springaop.business.*.*(..))", returning = "result")
+	@AfterReturning(value = "com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()", returning = "result")
 	public void afterReturning(JoinPoint joinPoint, Object result) {
 		logger.info("{} returned with value {}", joinPoint, result);
 
 	}
 
-	@AfterThrowing(value = "execution(* com.in28minutes.spring.aop.springaop.business.*.*(..))", throwing = "exception")
+	@AfterThrowing(value = "com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()", throwing = "exception")
 	public void afterThrowing(JoinPoint joinPoint, Object exception) {
 		logger.info("{} thrown {}", joinPoint, exception);
 
 	}
 
-	@After(value = "execution(* com.in28minutes.spring.aop.springaop.business.*.*(..))")
+	@After(value = "com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()")
 	public void after(JoinPoint joinPoint) {
 		logger.info("{} returned with value {}", joinPoint);
 
